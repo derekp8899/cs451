@@ -37,18 +37,22 @@ int main(int argc, char* argv[]){
   }
   buffer[charCount+1] = '\0';//null terminate the string
   printf("\n%s\n",buffer);//print the buffer the verify the storage is correct
-
+  search(buffer,charCount,"polar");
+  search(buffer, charCount,"easy");
+  free(buffer);
 }
 
 int search(char *data, int dataSize, char *search){
-  char *subStr;=malloc(100);//sub string buffer
+  char *subStr=malloc(100);//sub string buffer
   int i,j = 0;//loop counters
   int wordCount = 0;
   for(i = 0; i < dataSize; i++){
     
     if(data[i] == ' '){
-      subStr[j+1]='\0';//null term the sub string
+      subStr[j]='\0';//null term the sub string
+      //printf("compairing %s with %s \n",search, subStr);
       if(strcmp(subStr,search)==0){
+
 	wordCount++;
       }
       j=0;//reset the substring
@@ -63,6 +67,7 @@ int search(char *data, int dataSize, char *search){
 
 
   }
+  printf("count of %s in the file : %d\n", search,wordCount);
   return wordCount;
 
 }
