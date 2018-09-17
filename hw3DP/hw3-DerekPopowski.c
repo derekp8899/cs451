@@ -9,6 +9,9 @@ hw - 3
 
 9-17-18
 
+compile command:
+gcc hw3-DerekPopowski.c -o hw3 -lpthread
+
 */
 
 #include <stdlib.h>
